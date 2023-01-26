@@ -26,22 +26,31 @@ int GetNumber(string message)
   return resultNumber;
 }
 
-int Exponent(int firstNumber, int secondNumber)
+void Exponent(int firstNumber, int secondNumber)
 {
-  int expAinB = 1;
+  int expAinB = -1;
 
-  for (int i = 1; i <= secondNumber; i++)
+  if (secondNumber < 0)
   {
-    expAinB = expAinB * firstNumber;
+    Console.WriteLine("Введена отрицательная степень. Результат возведения в отрицательную степень - это дробное число, которое не предусмотрено данным решением");
+      }
+  else
+  {
+    expAinB = 1;
+
+    for (int i = 1; i <= secondNumber; i++)
+    {
+      expAinB = expAinB * firstNumber;
+    }
+  Console.WriteLine($"Число {firstNumber} в степени {secondNumber} равно {expAinB}");
   }
-  return expAinB;
 }
 
 int a = GetNumber("Введите первое натуральное число (основание)");
 int b = GetNumber("Введите второе натуральное число (степень)");
 
-int expResult = Exponent(a, b);
+Exponent(a, b);
 
-Console.WriteLine($"Число {a} в степени {b} равно {expResult}");
+
 
 
